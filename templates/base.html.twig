@@ -1,12 +1,59 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+{% block title %}Project WorkShop 7 !{% endblock %}
+
+{% block stylesheets %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Project WorkShop 7 </title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
+    <style>
+
+        .map-container{
+            overflow:hidden;
+            padding-bottom:56.25%;
+            position:relative;
+            height:0;
+        }
+        .map-container iframe{
+            left:0;
+            top:0;
+            height:100%;
+            width:100%;
+            position:absolute;
+        }
+    </style>
+{% endblock %}
+
+{% include "Common/NavBar.html.twig" %}
+
+<body class="grey lighten-3">
+
+{% include "Common/Header.html.twig" %}
+
+{% block body %} {% endblock %}
+</body>
+
+{% include "Common/Footer.html.twig" %}
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="{{ asset('js/jquery-3.4.1.min.js') }} "></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="{{ asset('js/popper.min.js') }} "></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }} "></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="{{ asset('js/mdb.min.js') }} "></script>
+<!-- Initializations -->
+<script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+
+</script>
