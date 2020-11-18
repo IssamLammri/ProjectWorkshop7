@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Personne
  *
- * @ORM\Table(name="personne", indexes={@ORM\Index(name="id_photo", columns={"id_photo"})})
+ * @ORM\Table(name="personne")
  * @ORM\Entity
  */
 class Personne
@@ -43,16 +43,6 @@ class Personne
      * @ORM\Column(name="data_naissance", type="date", nullable=true)
      */
     private $dataNaissance;
-
-    /**
-     * @var \Photo
-     *
-     * @ORM\ManyToOne(targetEntity="Photo")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_photo", referencedColumnName="id_photo")
-     * })
-     */
-    private $idPhoto;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -114,18 +104,6 @@ class Personne
     public function setDataNaissance(?\DateTimeInterface $dataNaissance): self
     {
         $this->dataNaissance = $dataNaissance;
-
-        return $this;
-    }
-
-    public function getIdPhoto(): ?Photo
-    {
-        return $this->idPhoto;
-    }
-
-    public function setIdPhoto(?Photo $idPhoto): self
-    {
-        $this->idPhoto = $idPhoto;
 
         return $this;
     }

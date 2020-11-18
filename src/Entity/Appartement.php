@@ -151,6 +151,7 @@ class Appartement
 
     public function __toString()
     {
-        return (string) $this->getNumeroAppart();
+        return (string)$this->getNumeroAppart();
     }
+
 }

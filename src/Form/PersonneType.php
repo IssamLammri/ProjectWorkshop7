@@ -15,7 +15,6 @@ class PersonneType extends AbstractType
             ->add('nomPers')
             ->add('prenomPers')
             ->add('dataNaissance')
-            ->add('idPhoto')
             ->add('idAppart')
         ;
     }
