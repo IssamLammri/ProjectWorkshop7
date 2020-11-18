@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HelloController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <br>
+    <br>
+    <br>
+    <h1>Hello  ✅</h1>
+
+    <div class="row">
+        <div class="col-8">
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="R1" role="tabpanel" aria-labelledby="list-home-list">
+                    vous êtes dans la résidence 1
+                </div>
+                <div class="tab-pane fade" id="R2" role="tabpanel" aria-labelledby="list-profile-list">
+                    vous êtes dans la résidence 2
+                </div>
+                <div class="tab-pane fade" id="R3" role="tabpanel" aria-labelledby="list-messages-list">
+                    vous êtes dans la résidence 3
+                </div>
+                <div class="tab-pane fade" id="R4" role="tabpanel" aria-labelledby="list-settings-list">
+                    vous êtes dans la résidence 4
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="list-group" id="list-tab" role="tablist">
+                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#R1"
+                   role="tab" aria-controls="home">Résidence 1</a>
+                <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#R2"
+                   role="tab" aria-controls="profile">Résidence 2</a>
+                <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#R3"
+                   role="tab" aria-controls="messages">Résidence 3</a>
+                <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#R4"
+                   role="tab" aria-controls="settings">Résidence 4</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
