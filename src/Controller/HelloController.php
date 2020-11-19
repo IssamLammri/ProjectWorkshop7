@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Appartement;
+use App\Entity\DataImgPer;
+use App\Entity\Personne;
 use App\Entity\Residence;
+use App\Repository\personneApart;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -40,6 +43,7 @@ class HelloController extends AbstractController
         $appartements = $this->getDoctrine()
             ->getRepository(Appartement::class)
             ->findBy(array('idResi' => $id_res));
+
         if ($request->isXmlHttpRequest() || $request->query->get('showJson') == 1) {
             $jsonData = array();
             $idx = 0;
@@ -61,6 +65,49 @@ class HelloController extends AbstractController
                 'appartements' => $appartements,
             ]);
         }
+    }
 
+    /**
+     * @Route("/findresi", name="findresi")
+     */
+    public function findResi(Request $request): Response
+    {
+        //$id_res = $request->request->get('idss');
+        $residants = $this->getDoctrine()
+            ->getRepository(DataImgPer::class)
+            ->findAll();
+            $jsonData = array();
+            $idx = 0;
+            foreach($residants as $residant) {
+                $temp = array(
+                    'Id' => $residant->getId(),
+                    'Data' => $residant->getData(),
+                    'Name' => $residant->getName(),
+                );
+                $jsonData[$idx++] = $temp;
+            }
+            return new JsonResponse($jsonData);
+    }
+
+    /**
+     * @Route("/findpersappert", name="findpersappert")
+     */
+    public function findpersappert(Request $request): Response
+    {
+        //$id_res = $request->request->get('idss');
+        $residants = $this->getDoctrine()
+            ->getRepository(DataImgPer::class)
+            ->findAll();
+        $jsonData = array();
+        $idx = 0;
+        foreach($residants as $residant) {
+            $temp = array(
+                'Id' => $residant->getId(),
+                'Data' => $residant->getData(),
+                'Name' => $residant->getName(),
+            );
+            $jsonData[$idx++] = $temp;
+        }
+        return new JsonResponse($jsonData);
     }
 }
