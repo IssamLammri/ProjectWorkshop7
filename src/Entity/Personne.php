@@ -136,5 +136,4 @@ class Personne
     {
         return (string)$this->getNomPers()." ".$this->getPrenomPers();
     }
-
 }

@@ -154,4 +154,5 @@ class Appartement
         return (string)$this->getNumeroAppart();
     }
 
+
 }

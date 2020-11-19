@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Appartement;
 use App\Entity\Personne;
 use App\Entity\DataImgPer;
+use App\Entity\Residence;
 use App\Form\PersonneType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -44,9 +46,14 @@ class PersonneController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($personne);
             $entityManager->flush();
+            $id_apprt = $personne->getIdAppart();
+            $apart = $this->getDoctrine()->getRepository(Appartement::class)->findOneByidAppart($id_apprt[0]);
+            $idres = $apart->getIdResi();
             $dataimgper->setName($personne->getNomPers()." ".$personne->getPrenomPers());
             $dataimgper->setData($request->request->get('data'));
             $dataimgper->setIdPer($personne);
+            $dataimgper->setIdAppart($id_apprt[0]);
+            $dataimgper->setIdRes($idres);
 
             $entityManager->persist($dataimgper);
             $entityManager->flush();
