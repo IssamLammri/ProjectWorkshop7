@@ -75,9 +75,9 @@
                                     </tbody>
                                 </table>
 
-                                <a href="{{ path('personne_index') }}">back to list</a>
+                                <a href="{{ path('personne_index') }}" class="btn btn-info">Retour à la liste</a>
 
-                                <a href="{{ path('personne_edit', {'idPers': personne.idPers}) }}">edit</a>
+                                <a href="{{ path('personne_edit', {'idPers': personne.idPers}) }}" class="btn btn-secondary">Éditer</a>
 
                                 {{ include('personne/_delete_form.html.twig') }}
 

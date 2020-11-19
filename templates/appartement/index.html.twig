@@ -1,4 +1,3 @@
-
 {% extends 'base.html.twig' %}
 
 {% block title %}Personne index{% endblock %}
@@ -10,32 +9,7 @@
     <main class="pt-5 mx-lg-5">
         <div class="container-fluid mt-5">
 
-            <!-- Heading -->
-            <div class="card mb-4 wow fadeIn">
-
-                <!--Card content-->
-                <div class="card-body d-sm-flex justify-content-between">
-
-                    <h4 class="mb-2 mb-sm-0 pt-1">
-                        <a href="https://mdbootstrap.com/docs/jquery/" target="_blank">Home Page</a>
-                        <span>/</span>
-                        <span>Dashboard</span>
-                    </h4>
-
-                    <form class="d-flex justify-content-center">
-                        <!-- Default input -->
-                        <input type="search" placeholder="Type your query" aria-label="Search" class="form-control">
-                        <button class="btn btn-primary btn-sm my-0 p" type="submit">
-                            <i class="fas fa-search"></i>
-                        </button>
-
-                    </form>
-
-                </div>
-
-            </div>
-            <!-- Heading -->
-
+            {% include "Common/Heading.html.twig" %}
 
 
             <!--Grid row-->
@@ -71,8 +45,8 @@
                                         <td>{{ appartement.surfaceAppart }}</td>
                                         <td>{{ appartement.etage }}</td>
                                         <td>
-                                            <a href="{{ path('appartement_show', {'idAppart': appartement.idAppart}) }}">show</a>
-                                            <a href="{{ path('appartement_edit', {'idAppart': appartement.idAppart}) }}">edit</a>
+                                            <a href="{{ path('appartement_show', {'idAppart': appartement.idAppart}) }}"><i class="far fa-eye"></i></a>
+                                            <a href="{{ path('appartement_edit', {'idAppart': appartement.idAppart}) }}"><i class="fas fa-edit"></i></a>
                                         </td>
                                     </tr>
                                 {% else %}

@@ -48,17 +48,17 @@
                     <div class="card">
 
                         <!-- Card header -->
-                        <div class="card-header">Personnes </div>
+                        <div class="card-header">Personne </div>
 
                         <!--Card content-->
                         <div class="card-body">
 
 
-                                <h1>Edit Personne</h1>
+                                <h1>Éditer Personne</h1>
 
                                 {{ include('personne/_form.html.twig', {'button_label': 'Update'}) }}
 
-                                <a href="{{ path('personne_index') }}">back to list</a>
+                                <a href="{{ path('personne_index') }}" class="btn btn-info">Retour à la liste</a>
 
                                 {{ include('personne/_delete_form.html.twig') }}
 
