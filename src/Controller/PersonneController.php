@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Personne;
+use App\Entity\DataImgPer;
 use App\Form\PersonneType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,12 +35,20 @@ class PersonneController extends AbstractController
     public function new(Request $request): Response
     {
         $personne = new Personne();
+        $dataimgper = new DataImgPer();
         $form = $this->createForm(PersonneType::class, $personne);
         $form->handleRequest($request);
+        $userId = null;
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($personne);
+            $entityManager->flush();
+            $dataimgper->setName($personne->getNomPers()." ".$personne->getPrenomPers());
+            $dataimgper->setData($request->request->get('data'));
+            $dataimgper->setIdPer($personne);
+
+            $entityManager->persist($dataimgper);
             $entityManager->flush();
 
             return $this->redirectToRoute('personne_index');

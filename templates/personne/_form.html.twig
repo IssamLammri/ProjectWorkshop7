@@ -1,4 +1,64 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<div class="form-row">
+    <div class="col-md-6 mb-3">
+        <label for="validationCustom01">Nom : </label>
+        {{ form_widget(form.nomPers, { 'attr': {'class': 'form-control', 'id': 'validationCustom01'} }) }}
+    </div>
+    <div class="col-md-6 mb-3">
+        <label for="validationCustom02">Prénom : </label>
+        {{ form_widget(form.prenomPers, { 'attr': {'class': 'form-control', 'id': 'validationCustom02'} }) }}
+    </div>
+    <div class="col-md-6 mb-3">
+        <label for="validationCustomDate">Date de naissance</label>
+        {{ form_widget(form.dataNaissance, { 'attr': {'class': 'form-control', 'id': 'validationCustomDate'} }) }}
+    </div>
+    <div class="col-md-6 mb-3">
+        <label for="validationCustom03">L'appartement : </label>
+        {{ form_widget(form.idAppart, { 'attr': {'class': 'browser-default custom-select' , 'id': 'validationCustom03'} }) }}
+    </div>
+</div>
+
+<!--Grid row-->
+<div class="row d-flex justify-content-center">
+
+    <!--Grid column-->
+    <div class="col-md-6">
+
+        <!-- Card -->
+        <div class="card text-center">
+
+                <video id="camera-feed"></video>
+
+            <!-- Card content -->
+            <div class="card-body text-center">
+
+                <!--Title-->
+                <h4 class="card-title">Detection de la DATA</h4>
+                <!--Text-->
+                <p class="card-text">une fois que vous êtes prêt, cliquez sur valider pour lancer l'analyse de votre Face ID</p>
+                <input type="hidden" name="data" id="data">
+                <div id="state_data"></div>
+                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                <button type="button" class="btn btn-primary" id="idrun">Valider</button>
+
+            </div>
+
+        </div>
+        <!-- Card -->
+
+    </div>
+    <!--Grid column-->
+
+</div>
+<!--Grid row-->
+
+<br>
+
+<div class="text-center">
+    <button type="submit" class="btn btn-success" id="submitButton" disabled="true">Submit</button>
+</div>
+
 {{ form_end(form) }}
+
+
+{{ encore_entry_script_tags('index') }}

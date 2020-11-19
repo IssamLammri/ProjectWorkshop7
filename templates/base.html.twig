@@ -1,19 +1,16 @@
 {% block title %}Project WorkShop 7 !{% endblock %}
 
-{% block stylesheets %}
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Project WorkShop 7 </title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-    <!-- Bootstrap core CSS -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <!-- Material Design Bootstrap -->
-    <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet">
-    <!-- Your custom styles (optional) -->
-    <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
+    {% block stylesheets %}
+        {# 'app' must match the first argument to addEntry() in webpack.config.js #}
+        {{ encore_entry_link_tags('app') }}
+        <!-- Renders a link tag (if your module requires any CSS)
+             <link rel="stylesheet" href="/build/app.css"> -->
+    {% endblock %}
     <style>
 
         .map-container{
@@ -30,7 +27,6 @@
             position:absolute;
         }
     </style>
-{% endblock %}
 
 {% include "Common/NavBar.html.twig" %}
 
@@ -42,18 +38,14 @@
 </body>
 
 {% include "Common/Footer.html.twig" %}
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+    <!-- Renders app.js & a webpack runtime.js file
+        <script src="/build/runtime.js"></script>
+        <script src="/build/app.js"></script> -->
+{% endblock %}
 <!-- SCRIPTS -->
-<!-- JQuery -->
-<script type="text/javascript" src="{{ asset('js/jquery-3.4.1.min.js') }} "></script>
-<!-- Bootstrap tooltips -->
-<script type="text/javascript" src="{{ asset('js/popper.min.js') }} "></script>
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }} "></script>
-<!-- MDB core JavaScript -->
-<script type="text/javascript" src="{{ asset('js/mdb.min.js') }} "></script>
-<!-- Initializations -->
 <script type="text/javascript">
-    // Animations initialization
-    new WOW().init();
+
 
 </script>

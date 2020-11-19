@@ -6,6 +6,7 @@ use App\Entity\Personne;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class PersonneType extends AbstractType
 {
@@ -14,7 +15,10 @@ class PersonneType extends AbstractType
         $builder
             ->add('nomPers')
             ->add('prenomPers')
-            ->add('dataNaissance')
+            ->add('dataNaissance',DateType::class, [
+                'widget' => 'single_text',
+                // this is actually the default format for single_text
+                'format' => 'yyyy-MM-dd'])
             ->add('idAppart')
         ;
     }

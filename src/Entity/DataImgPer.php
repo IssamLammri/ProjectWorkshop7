@@ -31,7 +31,7 @@ class DataImgPer
     /**
      * @var string|null
      *
-     * @ORM\Column(name="data", type="string", length=255, nullable=true)
+     * @ORM\Column(name="data", type="text", length=65535, nullable=true)
      */
     private $data;
 

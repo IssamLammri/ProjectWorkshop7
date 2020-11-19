@@ -1,34 +1,104 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Personne{% endblock %}
+{% block title %}Personne index{% endblock %}
+
 
 {% block body %}
-    <h1>Personne</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>IdPers</th>
-                <td>{{ personne.idPers }}</td>
-            </tr>
-            <tr>
-                <th>NomPers</th>
-                <td>{{ personne.nomPers }}</td>
-            </tr>
-            <tr>
-                <th>PrenomPers</th>
-                <td>{{ personne.prenomPers }}</td>
-            </tr>
-            <tr>
-                <th>DataNaissance</th>
-                <td>{{ personne.dataNaissance ? personne.dataNaissance|date('Y-m-d') : '' }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <!--Main layout-->
+    <main class="pt-5 mx-lg-5">
+        <div class="container-fluid mt-5">
 
-    <a href="{{ path('personne_index') }}">back to list</a>
+            <!-- Heading -->
+            <div class="card mb-4 wow fadeIn">
 
-    <a href="{{ path('personne_edit', {'idPers': personne.idPers}) }}">edit</a>
+                <!--Card content-->
+                <div class="card-body d-sm-flex justify-content-between">
 
-    {{ include('personne/_delete_form.html.twig') }}
+                    <h4 class="mb-2 mb-sm-0 pt-1">
+                        <a href="https://mdbootstrap.com/docs/jquery/" target="_blank">Home Page</a>
+                        <span>/</span>
+                        <span>Dashboard</span>
+                    </h4>
+
+                    <form class="d-flex justify-content-center">
+                        <!-- Default input -->
+                        <input type="search" placeholder="Type your query" aria-label="Search" class="form-control">
+                        <button class="btn btn-primary btn-sm my-0 p" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+            <!-- Heading -->
+
+
+
+            <!--Grid row-->
+            <div class="row wow fadeIn">
+
+                <!--Grid column-->
+                <div class="col-lg-12 col-md-12 mb-4">
+
+                    <!--Card-->
+                    <div class="card">
+
+                        <!-- Card header -->
+                        <div class="card-header">Personnes </div>
+
+                        <!--Card content-->
+                        <div class="card-body">
+
+                                <h1>Personne</h1>
+
+                                <table class="table">
+                                    <tbody>
+                                    <tr>
+                                        <th>IdPers</th>
+                                        <td>{{ personne.idPers }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>NomPers</th>
+                                        <td>{{ personne.nomPers }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>PrenomPers</th>
+                                        <td>{{ personne.prenomPers }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>DataNaissance</th>
+                                        <td>{{ personne.dataNaissance ? personne.dataNaissance|date('Y-m-d') : '' }}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                                <a href="{{ path('personne_index') }}">back to list</a>
+
+                                <a href="{{ path('personne_edit', {'idPers': personne.idPers}) }}">edit</a>
+
+                                {{ include('personne/_delete_form.html.twig') }}
+
+                        </div>
+
+                    </div>
+                    <!--/.Card-->
+
+                </div>
+                <!--Grid column-->
+
+
+            </div>
+            <!--Grid row-->
+
+
+        </div>
+    </main>
+    <!--Main layout-->
+
+
 {% endblock %}
+
+
