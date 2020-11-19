@@ -5,47 +5,181 @@
 
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
 
-<div class="example-wrapper">
-    <br>
-    <br>
-    <br>
-    <h1>Hello  ✅</h1>
+    <div class="example-wrapper">
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-8">
+                <div class="tab-content" id="nav-tabContent">
+                    {% for residence in residences %}
+                        <div class="tab-pane fade show " id="R{{ residence.idResi }}" role="tabpanel" aria-labelledby="list-home-list">
+                            vous êtes dans la résidence {{ residence.nomResi }}
+                        </div>
 
-    <div class="row">
-        <div class="col-8">
-            <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="R1" role="tabpanel" aria-labelledby="list-home-list">
-                    vous êtes dans la résidence 1
+                    {% endfor %}
+
                 </div>
-                <div class="tab-pane fade" id="R2" role="tabpanel" aria-labelledby="list-profile-list">
-                    vous êtes dans la résidence 2
-                </div>
-                <div class="tab-pane fade" id="R3" role="tabpanel" aria-labelledby="list-messages-list">
-                    vous êtes dans la résidence 3
-                </div>
-                <div class="tab-pane fade" id="R4" role="tabpanel" aria-labelledby="list-settings-list">
-                    vous êtes dans la résidence 4
+                <select class="form-control" id="choixMagasin">
+                    {% for residence in residences %}
+                        <option id="{{ residence.idResi }}">{{ residence.nomResi }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-4">
+                <div class="list-group" id="list-tab" role="tablist">
+                    {% for residence in residences %}
+                        <a class="list-group-item list-group-item-action " id="list-home-list" data-toggle="list" href="#R{{ residence.idResi }}"
+                           role="tab" aria-controls="home">{{ residence.nomResi }}</a>
+                    {% endfor %}
                 </div>
             </div>
         </div>
-        <div class="col-4">
-            <div class="list-group" id="list-tab" role="tablist">
-                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#R1"
-                   role="tab" aria-controls="home">Résidence 1</a>
-                <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#R2"
-                   role="tab" aria-controls="profile">Résidence 2</a>
-                <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#R3"
-                   role="tab" aria-controls="messages">Résidence 3</a>
-                <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#R4"
-                   role="tab" aria-controls="settings">Résidence 4</a>
-            </div>
-        </div>
-
     </div>
-</div>
+    <div class="row">
+        <div class="col">
+
+        </div>
+        <div class="col">
+
+            <button type="button" class="btn btn-outline-primary waves-effect" id="togg1">Entrer dans la résidence</button>
+        </div>
+        <div class="col">
+
+        </div>
+    </div>
+    <hr>
+    <div id="d1" class="text-center" style="display: none">
+        <div class="row">
+            <div class="col">
+                1 of 3
+            </div>
+            <div class="col">
+                <div class="card text-center">
+                    <div class="card-header">
+                        Caméra sur la rentrer de résidence
+                    </div>
+                    <div class="card-body">
+                        <img src="{{ asset('build/images/sample.jpg') }}" class="img-fluid" alt="Responsive image">
+                    </div>
+                    <div class="card-footer text-muted">
+                        <button class="btn purple-gradient" id="loadstudent">Tester</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <a type="button" class="btn btn-success" style="width: 500px; font-size: 20px" id="succ"> Authentication success</a>
+                <a type="button" class="btn btn-danger" style="width: 500px; font-size: 20px" id="fail"> Authentication failed</a>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col">
+            </div>
+            <div class="col-6" id="divappr">
+
+            </div>
+            <div class="col" id="divkappr">
+
+            </div>
+        </div>
+        <br>
+        <button type="button" class="btn btn-outline-primary waves-effect" id="togg2">Entrer dans l'appartement</button>
+        <hr>
+        <hr>
+        <div id="d2" style="display: none">
+            <div class="row">
+                <div class="col">
+                    1 of 3
+                </div>
+                <div class="col">
+                    <div class="card text-center">
+                        <div class="card-header">
+                            Caméra sur la rentrer de l'appartement
+                        </div>
+                        <div class="card-body">
+                            <img src="{{ asset('build/images/sample.jpg') }}" class="img-fluid" alt="Responsive image">
+                        </div>
+                        <div class="card-footer text-muted">
+                            2 days ago
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <a type="button" class="btn btn-success" style="width: 500px; font-size: 20px" id="succ"> Authentication success</a>
+                    <a type="button" class="btn btn-danger" style="width: 500px; font-size: 20px" id="fail"> Authentication failed</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script language = "javascript"
+            src = "https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#loadstudent").on("click", function(event){
+                var idres = $('#choixMagasin option:selected').attr('id');
+                $.ajax({
+                    url:        '/findappar',
+                    type:       'POST',
+                    data : {'idss' : idres},
+                    dataType:   'json',
+                    async:      true,
+
+                    success: function(data, status) {
+                        $('#divappr').html('');
+                        for(i = 0; i < data.length; i++) {
+                            student = data[i];
+                            var e = $('<label class="btn form-check-label aqua-gradient ">\n' +
+                                '                    <input class="form-check-input" type="radio" name="options" id="option" autocomplete="off" >\n' +
+                                '                    '+student['NumApp']+'\n' +
+                                '                </label>');
+                            $('#divappr').append(e);
+                        }
+                    },
+                    error : function(xhr, textStatus, errorThrown) {
+                        alert('Ajax request xxxxxxxxxxxxxx.');
+                    }
+                });
+            });
+        });
+        let togg1 = document.getElementById("togg1");
+        let togg2 = document.getElementById("togg2");
+        let d1 = document.getElementById("d1");
+        let d2 = document.getElementById("d2");
+        togg1.addEventListener("click", () => {
+            if(getComputedStyle(d1).display != "none"){
+                d1.style.display = "none";
+            } else {
+                d1.style.display = "block";
+            }
+        })
+        function togg(){
+            if(getComputedStyle(d2).display != "none"){
+                d2.style.display = "none";
+            } else {
+                d2.style.display = "block";
+            }
+        };
+        togg2.onclick = togg;
+    </script>
 {% endblock %}
+
+
