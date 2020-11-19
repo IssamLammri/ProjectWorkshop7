@@ -16,12 +16,14 @@ const checkface = async () => {
     await startCam();
     const video = document.getElementById("camera-feed");
     video.addEventListener('play', () => {
+        const canvas = faceapi.createCanvasFromMedia(video);
+        video.parentNode.append(canvas);
+        const cameraDimensions = { width: video.offsetWidth, height: video.offsetHeight };
+        faceapi.matchDimensions(canvas, cameraDimensions);
         $('#idrun').on('click',async function (){
             const results = await faceapi.detectSingleFace("camera-feed").withFaceLandmarks().withFaceDescriptor();
             if(results){
-                var resultfin = '['+results.descriptor.toString()+']';
-                console.log(resultfin);
-                $('#data').val(resultfin);
+                $('#data').val('['+results.descriptor.toString()+']');
                 $('#state_data').attr("class","color-block success-color z-depth-2");
                 $('#state_data').text('La DATA a été bien analysé');
                 $('#submitButton').removeAttr('disabled');
@@ -31,13 +33,13 @@ const checkface = async () => {
                 $('#submitButton').attr("disabled","disabled");
             }
         });
-        //const faceMatcher = new faceapi.FaceMatcher(descriptors);
-        //statusDiv.remove();
-        // setInterval(async () => {
-        //     const results = faceapi.detectSingleFace("camera-feed").withFaceLandmarks().withFaceDescriptor();
-        //     console.log(results);
-        //     canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
-        // }, 2000);
+        setInterval(async () => {
+            const results = await faceapi.detectSingleFace("camera-feed").withFaceLandmarks().withFaceDescriptor().run();
+            canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+            if (results) {
+                faceapi.draw.drawDetections(canvas, faceapi.resizeResults(results, cameraDimensions));
+            }
+        }, 100);
     });
 };
 
