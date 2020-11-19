@@ -72,10 +72,11 @@ class HelloController extends AbstractController
      */
     public function findResi(Request $request): Response
     {
-        //$id_res = $request->request->get('idss');
+
+        $id_res = json_decode($request->getContent(),true)['idss'];
         $residants = $this->getDoctrine()
             ->getRepository(DataImgPer::class)
-            ->findAll();
+            ->findBy(array('idRes' => $id_res));
             $jsonData = array();
             $idx = 0;
             foreach($residants as $residant) {
@@ -94,10 +95,10 @@ class HelloController extends AbstractController
      */
     public function findpersappert(Request $request): Response
     {
-        //$id_res = $request->request->get('idss');
+        $id_res = json_decode($request->getContent(),true)['idss'];
         $residants = $this->getDoctrine()
             ->getRepository(DataImgPer::class)
-            ->findAll();
+            ->findBy(array('idAppart' => $id_res));
         $jsonData = array();
         $idx = 0;
         foreach($residants as $residant) {

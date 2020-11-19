@@ -3,6 +3,8 @@ import * as faceapi from "face-api.js";
 import AuthorizedPerson from "./js/models/AuthorizedPerson";
 
 let resedent ;
+let routine;
+let canvas ;
 const MODELS_URL = '/fd-models';
 //const statusDiv = document.getElementById("match-result");
 const initData = async () => {
@@ -15,7 +17,8 @@ const initData = async () => {
 
 const initPersApprt = async () =>{
     //statusDiv.innerText = "Loading models...";
-    resedent = await fetch('/findpersappert',{method:'POST'});
+    var idres = $('#choixappart option:selected').attr('id');
+    resedent = await fetch('/findpersappert',{method:'POST', body : JSON.stringify({'idss' : idres})});
     //console.log(await resedent.json());
     resedent = AuthorizedPerson.parsResidence(await resedent.json());
     //console.log(resedent);
@@ -24,7 +27,9 @@ const initPersApprt = async () =>{
 
 const initPersRes = async () =>{
     //statusDiv.innerText = "Loading models...";
-    resedent = await fetch('/findresi',{method:'POST'});
+    var idres = $('#choixMagasin option:selected').attr('id');
+    console.log(idres);
+    resedent = await fetch('/findresi',{method:'POST', body : JSON.stringify({'idss' : idres})});
     //console.log(await resedent.json());
     resedent = AuthorizedPerson.parsResidence(await resedent.json());
     //console.log(resedent);
@@ -42,7 +47,7 @@ const compareFaces = async descriptors => {
     video.addEventListener('play', () => {
         let succ1 = document.getElementById("succ");
         let fail1 = document.getElementById("fail");
-        const canvas = faceapi.createCanvasFromMedia(video);
+        canvas = faceapi.createCanvasFromMedia(video);
         //document.body.appendChild(canvas);
         video.parentElement.prepend(canvas);
         const cameraDimensions = { width: video.clientWidth, height: video.clientHeight };
@@ -50,8 +55,7 @@ const compareFaces = async descriptors => {
         const faceMatcher = new faceapi.FaceMatcher(descriptors);
         //statusDiv.remove();
         let block = false;
-        setInterval(async () => {
-
+        routine = setInterval(async () => {
             const results = await faceapi
                 .detectAllFaces(video)
                 .withFaceLandmarks()
@@ -131,8 +135,13 @@ let togg2 = document.getElementById("togg2");
 let d1 = document.getElementById("d1");
 let d2 = document.getElementById("d2");
 togg1.addEventListener("click", () => {
+    if (canvas){
+        canvas.remove();
+    }
+    clearInterval(routine);
     initPersRes()
         .then(() => {compareFaces(AuthorizedPerson.generateLabeledFaceDescriptors(resedent))});
+
     if(getComputedStyle(d1).display != "none"){
         d1.style.display = "none";
     } else {
@@ -140,6 +149,9 @@ togg1.addEventListener("click", () => {
     }
 })
 togg2.addEventListener("click", () => {
+    if (canvas){
+        canvas.remove();    }
+    clearInterval(routine);
     initPersApprt()
         .then(() => {compareFaces(AuthorizedPerson.generateLabeledFaceDescriptors(resedent))});
     if(getComputedStyle(d1).display != "none"){
