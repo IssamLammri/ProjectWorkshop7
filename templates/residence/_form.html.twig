@@ -1,4 +1,23 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<div class="form-row">
+    <div class="col-md-4 mb-3">
+        <label for="validationCustom01">Nom Résidence : </label>
+        {{ form_widget(form.nomResi, { 'attr': {'class': 'form-control', 'id': 'validationCustom01'} }) }}
+    </div>
+    <div class="col-md-4 mb-3">
+        <label for="validationCustom02">Adresse Résidence : </label>
+        {{ form_widget(form.adresseResi, { 'attr': {'class': 'form-control', 'id': 'validationCustom02'} }) }}
+    </div>
+    <div class="col-md-4 mb-3">
+        <label for="validationCustomDate">Nombre Appartement Résidence</label>
+        {{ form_widget(form.nombreAppart, { 'attr': {'class': 'form-control', 'id': 'validationCustomDate'} }) }}
+    </div>
+</div>
+
+<br>
+
+<div class="text-center">
+    <button type="submit" class="btn btn-success">Enregistrer</button>
+</div>
+
 {{ form_end(form) }}

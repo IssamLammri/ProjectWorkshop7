@@ -1,24 +1,342 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello FirstController!{% endblock %}
-
+{% block title %}Personne index{% endblock %}
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/FLOWBID/Desktop/ProjectWorkShop7/src/Controller/FirstController.php'|file_link(0) }}">src/Controller/FirstController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/FLOWBID/Desktop/ProjectWorkShop7/templates/first/index.html.twig'|file_link(0) }}">templates/first/index.html.twig</a></code></li>
-    </ul>
-
-    <img src="{{ asset('img/sample.jpg') }}">
+    <!--Main layout-->
+    <main class="pt-5 mx-lg-5">
+        <div class="container-fluid mt-5">
 
 
-</div>
+            <!--Grid row-->
+            <div class="row wow fadeIn">
+
+                <!--Grid column-->
+                <div class="col-lg-12 col-md-12 mb-4">
+
+                    <!--Grid row-->
+                    <div class="row d-flex justify-content-center">
+
+                        <!--Grid column-->
+                        <div class="col-md-3">
+
+                            <!-- Card Regular -->
+                            <div class="card card-cascade">
+
+                                <!-- Card image -->
+                                <div class="view view-cascade overlay">
+                                    <img class="card-img-top" src="{{ asset('build/images/epsi.jpg') }}"
+                                         alt="Card image cap">
+                                    <a>
+                                        <div class="mask rgba-white-slight"></div>
+                                    </a>
+                                </div>
+
+                                <!-- Card content -->
+                                <div class="card-body card-body-cascade text-center">
+
+                                    <!-- Title -->
+                                    <h4 class="card-title"><strong>EPSI</strong></h4>
+                                    <!-- Subtitle -->
+                                    <h6 class="font-weight-bold indigo-text py-2">L'école d'ingénierie informatique</h6>
+                                    <!-- Text -->
+                                    <p class="card-text">Grenoble compte parmi les poumons du numérique et de l’informatique français. L’écosystème digital de la ville n’a de cesse de se développer,
+                                        comme en témoignent les nombreuses infrastructures de la ville telles que les incubateurs, les fab labs ou encore les espaces de co-working.
+                                    </p>
+
+                                    <!-- Facebook -->
+                                    <a href="https://www.epsi.fr/" type="button" class="btn-floating btn-small btn-fb"><i
+                                                class="fab fa-facebook-f"></i></a>
+                                    <!-- Twitter -->
+                                    <a href="https://www.epsi.fr/"  type="button" class="btn-floating btn-small btn-tw"><i
+                                                class="fab fa-twitter"></i></a>
+                                    <!-- Google + -->
+                                    <a href="https://www.epsi.fr/"  type="button" class="btn-floating btn-small btn-dribbble"><i
+                                                class="fab fa-dribbble"></i></a>
+
+                                </div>
+
+                            </div>
+                            <!-- Card Regular -->
+
+                        </div>
+                        <!--Grid column-->
+
+                    </div>
+                    <!--Grid row-->
+
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-12 col-md-12 mb-4">
+
+                    <!--Grid row-->
+                    <div class="row d-flex justify-content-center">
+
+                        <!--Grid column-->
+                        <div class="col-md-2">
+
+                            <!-- Card Regular -->
+                            <div class="card card-cascade">
+
+                                <!--Avatar-->
+                                <div class="avatar mx-auto white"><img
+                                            src="{{ asset('build/images/Liam.jpg') }}"
+                                            alt="avatar mx-auto white" class="rounded-circle img-fluid">
+                                </div>
+
+                                <!-- Card content -->
+                                <div class="card-body card-body-cascade text-center">
+
+                                    <!-- Title -->
+                                    <h4 class="card-title"><strong>POWELL Liam</strong></h4>
+                                    <!-- Subtitle -->
+                                    <h6 class="font-weight-bold indigo-text py-2">Développeur web</h6>
+                                    <!-- Text -->
+                                    <p class="card-text">Développeur web chez Moonshot Labs, avec des affinités pour le
+                                        développement web full stack et mobile. Joue à des jeux video et fait du game
+                                        dev dans son temps libre.
+                                    </p>
+
+                                    <!-- Facebook -->
+                                    <a href="https://www.linkedin.com/in/tysilio/" type="button" class="btn-floating btn-small btn-fb"><i
+                                                class="fab fa-facebook-f"></i></a>
+                                    <!-- Twitter -->
+                                    <a href="https://twitter.com/BSoDLiam" type="button" class="btn-floating btn-small btn-tw"><i
+                                                class="fab fa-twitter"></i></a>
+                                    <!-- linkedin + -->
+                                    <a href="https://www.linkedin.com/in/tysilio/" type="button" class="btn-floating btn-small btn-dribbble"><i
+                                                class="fab fa-linkedin-in"></i></a>
+
+                                </div>
+
+                            </div>
+                            <!-- Card Regular -->
+
+                        </div>
+                        <!--Grid column-->
+
+                        <!--Grid column-->
+                        <div class="col-md-2">
+
+                            <!-- Card Regular -->
+                            <div class="card card-cascade">
+
+                                <!--Avatar-->
+                                <div class="avatar mx-auto white"><img
+                                            src="{{ asset('build/images/dib.jpg') }}"
+                                            alt="avatar mx-auto white" class="rounded-circle img-fluid">
+                                </div>
+
+                                <!-- Card content -->
+                                <div class="card-body card-body-cascade text-center">
+
+                                    <!-- Title -->
+                                    <h4 class="card-title"><strong>DIB Mohammed</strong></h4>
+                                    <!-- Subtitle -->
+                                    <h6 class="font-weight-bold indigo-text py-2">Développeur web</h6>
+                                    <!-- Text -->
+                                    <p class="card-text">Développeur web chez Kheeos, Ma réussite professionnelle étant mon objectif principal.<br>
+                                        Joue à des jeux video et un footballeur professionnel
+                                    </p>
+
+                                    <!-- Facebook -->
+                                    <a href="https://www.facebook.com/mohammeddib3/" type="button" class="btn-floating btn-small btn-fb"><i
+                                                class="fab fa-facebook-f"></i></a>
+                                    <!-- Twitter -->
+                                    <a href="https://twitter.com/mohammeddib85" type="button" class="btn-floating btn-small btn-tw"><i
+                                                class="fab fa-twitter"></i></a>
+                                    <!-- Linkdin + -->
+                                    <a href="https://www.linkedin.com/in/mohammeddib3/" type="button" class="btn-floating btn-small btn-dribbble"><i
+                                                class="fab fa-linkedin-in"></i></a>
+
+                                </div>
+
+                            </div>
+                            <!-- Card Regular -->
+
+                        </div>
+                        <!--Grid column-->
+
+                        <!--Grid column-->
+                        <div class="col-md-2">
+
+                            <!-- Card Regular -->
+                            <div class="card card-cascade">
+
+                                <!--Avatar-->
+                                <div class="avatar mx-auto white"><img
+                                            src="{{ asset('build/images/issam.jpg') }}"
+                                            alt="avatar mx-auto white" class="rounded-circle img-fluid">
+                                </div>
+
+                                <!-- Card content -->
+                                <div class="card-body card-body-cascade text-center">
+
+                                    <!-- Title -->
+                                    <h4 class="card-title"><strong>LAMMRI ISSAM</strong></h4>
+                                    <!-- Subtitle -->
+                                    <h6 class="font-weight-bold indigo-text py-2">Développeur web</h6>
+                                    <!-- Text -->
+                                    <p class="card-text">Développeur web chez Live-session,et un photographe expert sur le domaine de paysage et le portrait, ainsi propriétaire de start-up ForkInnovation pour le développement IA et IOT.
+                                    </p>
+
+                                    <!-- Facebook -->
+                                    <a href="https://www.facebook.com/issam.lamrri/" type="button" class="btn-floating btn-small btn-fb"><i
+                                                class="fab fa-facebook-f"></i></a>
+                                    <!-- Twitter -->
+                                    <a href="https://twitter.com/ILammri" type="button" class="btn-floating btn-small btn-tw"><i
+                                                class="fab fa-twitter"></i></a>
+                                    <!-- Linkdin + -->
+                                    <a href="https://www.linkedin.com/in/issam-lammri-2a3174163/" type="button" class="btn-floating btn-small btn-dribbble"><i
+                                                class="fab fa-linkedin-in"></i></a>
+
+                                </div>
+
+                            </div>
+                            <!-- Card Regular -->
+
+                        </div>
+                        <!--Grid column-->
+
+                        <!--Grid column-->
+                        <div class="col-md-2">
+
+                            <!-- Card Regular -->
+                            <div class="card card-cascade">
+
+                                <!--Avatar-->
+                                <div class="avatar mx-auto white"><img
+                                            src="{{ asset('build/images/ouss.jpg') }}"
+                                            alt="avatar mx-auto white" class="rounded-circle img-fluid">
+                                </div>
+
+                                <!-- Card content -->
+                                <div class="card-body card-body-cascade text-center">
+
+                                    <!-- Title -->
+                                    <h4 class="card-title"><strong>SOW Ousmane</strong></h4>
+                                    <!-- Subtitle -->
+                                    <h6 class="font-weight-bold indigo-text py-2">Développeur web</h6>
+                                    <!-- Text -->
+                                    <p class="card-text">Developpeur web chez Schneider Electric avec des preferences <br>pour Java( Spring boot) et angular. Joue à des jeux video et pratique du foot pendant son temps libre
+                                    </p>
+
+                                    <!-- Facebook -->
+                                    <a href="https://www.facebook.com/ousmane.sow.1048" type="button" class="btn-floating btn-small btn-fb"><i
+                                                class="fab fa-facebook-f"></i></a>
+                                    <!-- Twitter -->
+                                    <a href="https://twitter.com/ousmane86023465" type="button" class="btn-floating btn-small btn-tw"><i
+                                                class="fab fa-twitter"></i></a>
+                                    <!-- Linkdin + -->
+                                    <a href="https://www.linkedin.com/in/ousmane-sow-1133a8178/" type="button" class="btn-floating btn-small btn-dribbble"><i
+                                                class="fab fa-linkedin-in"></i></a>
+
+                                </div>
+
+                            </div>
+                            <!-- Card Regular -->
+
+                        </div>
+                        <!--Grid column-->
+
+                        <!--Grid column-->
+                        <div class="col-md-2">
+
+                            <!-- Card Regular -->
+                            <div class="card card-cascade">
+
+                                <!--Avatar-->
+                                <div class="avatar mx-auto white"><img
+                                            src="{{ asset('build/images/Wail.jpg') }}"
+                                            alt="avatar mx-auto white" class="rounded-circle img-fluid" >
+                                </div>
+
+                                <!-- Card content -->
+                                <div class="card-body card-body-cascade text-center">
+
+                                    <!-- Title -->
+                                    <h4 class="card-title"><strong>RIACHI Waïl</strong></h4>
+                                    <!-- Subtitle -->
+                                    <h6 class="font-weight-bold indigo-text py-2">Data Analyst</h6>
+                                    <!-- Text -->
+                                    <p class="card-text">Data Manager chez Sanofi Pasteur, passionné par les statistiques<br>et l'informatique il exerce sa passion au sein du leader mondial de <br>la santé.
+                                    </p>
+
+                                    <!-- Facebook -->
+                                    <a href="https://www.linkedin.com/in/wa%C3%AFl-riachi/" type="button" class="btn-floating btn-small btn-fb"><i
+                                                class="fab fa-facebook-f"></i></a>
+                                    <!-- Twitter -->
+                                    <a href="https://www.linkedin.com/in/wa%C3%AFl-riachi/" type="button" class="btn-floating btn-small btn-tw"><i
+                                                class="fab fa-twitter"></i></a>
+                                    <!-- Linkdin + -->
+                                    <a href="https://www.linkedin.com/in/wa%C3%AFl-riachi/" type="button" class="btn-floating btn-small btn-dribbble"><i
+                                                class="fab fa-linkedin-in"></i></a>
+
+                                </div>
+
+                            </div>
+                            <!-- Card Regular -->
+
+                        </div>
+                        <!--Grid column-->
+
+                        <!--Grid column-->
+                        <div class="col-md-2">
+
+                            <!-- Card Regular -->
+                            <div class="card card-cascade">
+
+                                <!--Avatar-->
+                                <div class="avatar mx-auto white"><img
+                                            src="{{ asset('build/images/Kebabi.jpg') }}"
+                                            alt="avatar mx-auto white" class="rounded-circle img-fluid">
+                                </div>
+
+                                <!-- Card content -->
+                                <div class="card-body card-body-cascade text-center">
+
+                                    <!-- Title -->
+                                    <h4 class="card-title"><strong>KEBBABI Younes</strong></h4>
+                                    <!-- Subtitle -->
+                                    <h6 class="font-weight-bold indigo-text py-2">Développeur web</h6>
+                                    <!-- Text -->
+                                    <p class="card-text">Développeur Web passionné par tout ce qui est digital,<br> autodidacte et profite de son temps libre<br> pour se former dans les nouvelles technologies.
+                                    </p>
+
+                                    <!-- Facebook -->
+                                    <a href="https://twitter.com/younes_kebbabi" type="button" class="btn-floating btn-small btn-fb"><i
+                                                class="fab fa-facebook-f"></i></a>
+                                    <!-- Twitter -->
+                                    <a href="https://twitter.com/younes_kebbabi" type="button" class="btn-floating btn-small btn-tw"><i
+                                                class="fab fa-twitter"></i></a>
+                                    <!-- Linkdin + -->
+                                    <a href="www.linkedin.com/in/younes-kebbabi-a7461a198" type="button" class="btn-floating btn-small btn-dribbble"><i
+                                                class="fab fa-linkedin-in"></i></a>
+
+                                </div>
+
+                            </div>
+                            <!-- Card Regular -->
+
+                        </div>
+                        <!--Grid column-->
+
+                    </div>
+                    <!--Grid row-->
+
+                </div>
+                <!--Grid column-->
+
+
+            </div>
+            <!--Grid row-->
+
+
+        </div>
+    </main>
+    <!--Main layout-->
+
+
 {% endblock %}

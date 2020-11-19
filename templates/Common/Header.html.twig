@@ -4,18 +4,28 @@
     <!-- Sidebar -->
     <div class="sidebar-fixed position-fixed">
 
+        {% set _template = app.request.get('_controller')|split('::') %}
+        {% set bundle = _template[0]|split('\\') %}
         <a class="logo-wrapper waves-effect">
             <img src="https://mdbootstrap.com/img/logo/mdb-email.png" class="img-fluid" alt="">
         </a>
 
         <div class="list-group list-group-flush">
-            <a href="{{ path('personne_index') }}" class="list-group-item active waves-effect">
-                <i class="fas fa-chart-pie mr-3"></i>Personnes
+            <a href="{{ path('hello') }}" class="list-group-item {% if bundle[2] == 'HelloController' %} active {% endif %} list-group-item-action waves-effect">
+                <i class="fas fa-globe-europe mr-3"></i>Acceuil
             </a>
-            <a href="{{ path('residence_index') }}" class="list-group-item list-group-item-action waves-effect">
-                <i class="fas fa-user mr-3"></i>Résidences</a>
-            <a href="{{ path('appartement_index') }}" class="list-group-item list-group-item-action waves-effect">
-                <i class="fas fa-table mr-3"></i>Appartements</a>
+            <a href="{{ path('personne_index') }}" class="list-group-item {% if bundle[2] == 'PersonneController' %} active {% endif %} list-group-item-action waves-effect">
+                <i class="fas fa-user-friends mr-3"></i>Personnes
+            </a>
+            <a href="{{ path('personne_new') }}" class="list-group-item list-group-item-action waves-effect">
+                <i class="fas fa-user-plus mr-3"></i>Nouveau Locataire
+            </a>
+            <a href="{{ path('residence_index') }}" class="list-group-item {% if bundle[2] == 'ResidenceController' %} active {% endif %} list-group-item-action waves-effect">
+                <i class="fas fa-city mr-3"></i>Résidences</a>
+            <a href="{{ path('appartement_index') }}" class="list-group-item {% if bundle[2] == 'AppartementController' %} active {% endif %} list-group-item-action waves-effect">
+                <i class="fas fa-home mr-3"></i>Appartements</a>
+            <a href="{{ path('home') }}" class="list-group-item {% if bundle[2] == 'FirstController' %} active {% endif %} list-group-item-action waves-effect">
+                <i class="fas fa-users mr-3"></i>Équipe du Projet</a>
         </div>
 
     </div>
